@@ -1,10 +1,10 @@
 package cn.com.email.email.service.impl;
 
 import cn.com.email.email.domain.config.ConfigValue;
-import cn.com.email.email.domain.vo.KtwSimpleMailMessage;
 import cn.com.email.email.domain.vo.SendReqVo;
 import cn.com.email.email.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +37,9 @@ public class MailServiceImpl implements MailService {
 
             System.out.println("发送者为："+configValue.sendMailAddress);
 
-            KtwSimpleMailMessage simpleMailMessage = new KtwSimpleMailMessage();
-            simpleMailMessage.setSentDate(new Date());
+            SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+            simpleMailMessage .setSentDate(new Date());
+            simpleMailMessage.setFrom(configValue.sendMailAddress);
             simpleMailMessage.setTo(sendReqVo.getEmailAddress());
             simpleMailMessage.setSubject(sendReqVo.getTitle());
             simpleMailMessage.setText(sendReqVo.getText());
