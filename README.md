@@ -5,7 +5,7 @@
         <artifactId>spring-boot-starter-mail</artifactId>
     </dependency>`
 `
-   #在yml 文件配置`
+   # 在yml 文件配置`
 
         `spring:
           mail:
@@ -14,7 +14,7 @@
             password: *********** 用户密码
             default-encoding: utf-8` 格式
 
-   #发送邮件。发送者地址写死，可以使用继承的关系
+   # 发送邮件。发送者地址写死，可以使用继承的关系
 
         `public class KtwSimpleMailMessage extends SimpleMailMessage {
             public KtwSimpleMailMessage() {
